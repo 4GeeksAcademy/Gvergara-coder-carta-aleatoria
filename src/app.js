@@ -6,7 +6,7 @@ function generarCartaAleatoria(numbers, palos){
 
 
 function showCart(){
-  const value = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Rey", "Reina", "Jota", "As"];
+  const value = [ "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Rey", "Reina", "Jota"];
   const sticks = ["♦",  "♥",  "♠",  "♣"];
 
   const newCart = generarCartaAleatoria(value, sticks);
@@ -14,11 +14,22 @@ function showCart(){
   const numberElemt = document.getElementById("number");
   const stickElement2 = document.getElementById("stick-down");
   const newCartBtn = document.getElementById("newCart");
+
+
   
   stickElement.innerText = newCart.sticks
   numberElemt.innerText = newCart.value
   stickElement2.innerText = newCart.sticks
+  //boton
   newCartBtn.addEventListener("click", showCart)
+  //cambiar color de palos
+  if(newCart.sticks === "♥" || newCart.sticks === "♦"){
+    stickElement.style.color = "red";
+    stickElement2.style.color = "red"
+  }else{
+    stickElement.style.color = "black"
+    stickElement2.style.color = "black"
+  }
 
   console.log(newCart.sticks);
   
